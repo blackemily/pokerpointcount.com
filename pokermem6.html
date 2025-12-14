@@ -1,0 +1,624 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="description" content="Poker Memory Trainer: brain training for faster poker decisions, fewer mistakes, and sharper focus—built on mnemonic drills, games, and pressure challenges." />
+  <title>Poker Memory Trainer — Train Faster Decisions</title>
+
+  <style>
+    :root{
+      --bg:#0b0f17;
+      --panel:#0f1626;
+      --card:#111b2f;
+      --text:#e8eefc;
+      --muted:#b7c3de;
+      --soft:#93a4c7;
+      --line:rgba(255,255,255,.10);
+      --brand:#38bdf8;
+      --brand2:#22c55e;
+      --danger:#fb7185;
+      --shadow: 0 12px 40px rgba(0,0,0,.45);
+      --radius:18px;
+      --radius2:26px;
+      --max: 1120px;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+      background:
+        radial-gradient(1200px 700px at 15% 10%, rgba(56,189,248,.22), transparent 55%),
+        radial-gradient(900px 500px at 85% 20%, rgba(34,197,94,.18), transparent 55%),
+        radial-gradient(900px 600px at 50% 100%, rgba(99,102,241,.14), transparent 55%),
+        var(--bg);
+      color:var(--text);
+      line-height:1.45;
+    }
+    a{color:inherit}
+    .wrap{max-width:var(--max); margin:0 auto; padding:28px 18px 64px}
+    .topbar{
+      display:flex; align-items:center; justify-content:space-between;
+      gap:14px; padding:14px 0 22px;
+    }
+    .brand{
+      display:flex; align-items:center; gap:12px;
+      text-decoration:none;
+    }
+    .logo{
+      width:42px; height:42px; border-radius:999px;
+      background: linear-gradient(135deg, rgba(56,189,248,.95), rgba(34,197,94,.85));
+      box-shadow: 0 10px 30px rgba(56,189,248,.18);
+      display:grid; place-items:center; font-weight:900; letter-spacing:.5px;
+      color:#06101a;
+    }
+    .brand .name{
+      display:flex; flex-direction:column; gap:2px;
+    }
+    .brand .name strong{font-size:14px; letter-spacing:.2px}
+    .brand .name span{font-size:12px; color:var(--muted)}
+    .nav{
+      display:flex; gap:10px; flex-wrap:wrap; justify-content:flex-end;
+    }
+    .chip{
+      border:1px solid var(--line);
+      background:rgba(255,255,255,.04);
+      color:var(--muted);
+      padding:8px 10px;
+      border-radius:999px;
+      font-size:12px;
+      text-decoration:none;
+      transition:.2s ease;
+    }
+    .chip:hover{transform:translateY(-1px); border-color:rgba(56,189,248,.35); color:var(--text)}
+    .hero{
+      display:grid;
+      grid-template-columns: 1.2fr .8fr;
+      gap:18px;
+      align-items:stretch;
+      margin-top:10px;
+    }
+    @media (max-width: 980px){
+      .hero{grid-template-columns:1fr}
+      .nav{display:none}
+    }
+
+    .panel{
+      background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.03));
+      border: 1px solid var(--line);
+      border-radius: var(--radius2);
+      box-shadow: var(--shadow);
+      overflow:hidden;
+    }
+    .hero-left{padding:28px 26px 22px}
+    .badge-row{display:flex; flex-wrap:wrap; gap:10px; margin-bottom:14px}
+    .badge{
+      font-size:12px;
+      padding:7px 10px;
+      border-radius:999px;
+      border:1px solid rgba(56,189,248,.22);
+      background: rgba(56,189,248,.10);
+      color: var(--text);
+    }
+    .badge.green{
+      border-color: rgba(34,197,94,.25);
+      background: rgba(34,197,94,.10);
+    }
+    h1{
+      margin:0 0 10px;
+      font-size:44px;
+      line-height:1.05;
+      letter-spacing:-.6px;
+    }
+    @media(max-width:520px){ h1{font-size:36px} }
+    .subhead{
+      font-size:16px;
+      color:var(--muted);
+      max-width:62ch;
+      margin: 0 0 18px;
+    }
+    .bullets{
+      margin: 0 0 18px;
+      padding:0;
+      list-style:none;
+      display:grid;
+      gap:10px;
+      max-width:70ch;
+    }
+    .bullets li{
+      display:flex; gap:10px;
+      color:var(--text);
+      align-items:flex-start;
+    }
+    .dot{
+      width:10px; height:10px; border-radius:999px;
+      background: rgba(56,189,248,.95);
+      margin-top:6px;
+      flex:0 0 10px;
+      box-shadow: 0 0 0 4px rgba(56,189,248,.12);
+    }
+    .cta-row{
+      display:flex; gap:12px; flex-wrap:wrap; align-items:center;
+      margin-top:16px;
+    }
+    .btn{
+      display:inline-flex; align-items:center; justify-content:center; gap:10px;
+      padding:12px 14px;
+      border-radius: 14px;
+      text-decoration:none;
+      border:1px solid rgba(255,255,255,.12);
+      background: rgba(255,255,255,.06);
+      color: var(--text);
+      transition: .2s ease;
+      font-weight:700;
+      letter-spacing:.2px;
+    }
+    .btn:hover{transform:translateY(-1px); border-color: rgba(56,189,248,.35)}
+    .btn.primary{
+      background: linear-gradient(135deg, rgba(56,189,248,.95), rgba(34,197,94,.85));
+      border-color: transparent;
+      color:#06101a;
+      box-shadow: 0 18px 40px rgba(56,189,248,.18);
+    }
+    .btn.primary:hover{filter:saturate(1.02) brightness(1.02)}
+    .micro{
+      font-size:12px;
+      color:var(--soft);
+      margin: 10px 0 0;
+    }
+
+    .hero-right{padding:0}
+    .price-box{
+      padding:22px;
+      border-bottom:1px solid var(--line);
+      background: rgba(0,0,0,.18);
+    }
+    .price-top{
+      display:flex; align-items:flex-start; justify-content:space-between; gap:12px;
+    }
+    .price-top h2{
+      margin:0;
+      font-size:18px;
+      letter-spacing:-.2px;
+    }
+    .price{
+      font-size:44px;
+      font-weight:900;
+      line-height:1;
+      letter-spacing:-.6px;
+      margin: 10px 0 8px;
+    }
+    .price small{
+      font-size:13px;
+      font-weight:700;
+      color: rgba(232,238,252,.75);
+      letter-spacing:.1px;
+    }
+    .includes{
+      padding:18px 22px 22px;
+    }
+    .includes h3{
+      margin:0 0 10px;
+      font-size:14px;
+      text-transform:uppercase;
+      letter-spacing:.14em;
+      color: rgba(232,238,252,.78);
+    }
+    .checklist{
+      list-style:none; padding:0; margin:0;
+      display:grid; gap:10px;
+    }
+    .checklist li{
+      display:flex; gap:10px; align-items:flex-start;
+      color:var(--muted);
+      font-size:14px;
+    }
+    .tick{
+      width:18px; height:18px; border-radius:6px;
+      background: rgba(34,197,94,.12);
+      border:1px solid rgba(34,197,94,.25);
+      display:grid; place-items:center;
+      color: rgba(34,197,94,.95);
+      font-weight:900;
+      flex:0 0 18px;
+      margin-top:2px;
+    }
+
+    section{margin-top:22px}
+    .grid{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap:16px;
+    }
+    @media (max-width: 980px){ .grid{grid-template-columns:1fr} }
+
+    .card{
+      background: rgba(255,255,255,.04);
+      border:1px solid var(--line);
+      border-radius: var(--radius);
+      padding:18px 18px 16px;
+    }
+    .card h3{margin:0 0 8px; font-size:18px; letter-spacing:-.2px}
+    .card p{margin:0; color:var(--muted); font-size:14px}
+    .section-title{
+      display:flex; align-items:flex-end; justify-content:space-between; gap:16px;
+      margin: 8px 0 12px;
+    }
+    .section-title h2{
+      margin:0;
+      font-size:24px;
+      letter-spacing:-.3px;
+    }
+    .section-title span{
+      color:var(--soft);
+      font-size:13px;
+    }
+    .long{
+      padding:22px;
+    }
+    .long p{color:var(--muted); margin:0 0 12px; font-size:15px}
+    .long p strong{color:var(--text)}
+    .list{
+      margin:12px 0 0;
+      padding-left:18px;
+      color:var(--muted);
+      font-size:15px;
+    }
+    .list li{margin:8px 0}
+    .divider{
+      height:1px;
+      background: var(--line);
+      margin: 18px 0;
+    }
+
+    .mnemo{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap:10px;
+      margin-top:12px;
+    }
+    @media(max-width:720px){ .mnemo{grid-template-columns:1fr} }
+    .pill{
+      border:1px solid rgba(255,255,255,.10);
+      background: rgba(0,0,0,.14);
+      border-radius: 14px;
+      padding:12px 12px;
+      display:flex; justify-content:space-between; gap:12px;
+      align-items:center;
+      color:var(--muted);
+      font-size:14px;
+    }
+    .pill b{color:var(--text); letter-spacing:.2px}
+    .pill em{
+      font-style:normal;
+      color: rgba(232,238,252,.72);
+      font-size:12px;
+    }
+
+    .faq details{
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.03);
+      border-radius: 14px;
+      padding: 12px 14px;
+      margin: 10px 0;
+    }
+    .faq summary{
+      cursor:pointer;
+      font-weight:800;
+      color: var(--text);
+      list-style:none;
+    }
+    .faq summary::-webkit-details-marker{display:none}
+    .faq p{margin:10px 0 0; color:var(--muted)}
+
+    .footer{
+      margin-top:34px;
+      padding-top:18px;
+      border-top:1px solid var(--line);
+      color: var(--soft);
+      font-size:12px;
+      display:flex;
+      justify-content:space-between;
+      gap:12px;
+      flex-wrap:wrap;
+    }
+    .note{
+      color: rgba(232,238,252,.70);
+      font-size:12px;
+      padding:10px 12px;
+      border: 1px dashed rgba(255,255,255,.18);
+      border-radius: 14px;
+      background: rgba(0,0,0,.12);
+      margin-top:12px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="wrap">
+    <header class="topbar">
+      <a class="brand" href="#top" aria-label="Poker Memory Trainer home" id="top">
+        <div class="logo">PM</div>
+        <div class="name">
+          <strong>Poker Memory Trainer</strong>
+          <span>Train faster decisions. Sharpen recall under pressure.</span>
+        </div>
+      </a>
+
+      <nav class="nav" aria-label="Page navigation">
+        <a class="chip" href="#how">How it works</a>
+        <a class="chip" href="#modes">Training modes</a>
+        <a class="chip" href="#inside">What you get</a>
+        <a class="chip" href="#faq">FAQ</a>
+        <a class="chip" href="#buy">Get access</a>
+      </nav>
+    </header>
+
+    <main>
+      <!-- HERO -->
+      <div class="hero">
+        <div class="panel hero-left">
+          <div class="badge-row">
+            <span class="badge">Brain-training for poker</span>
+            <span class="badge green">Games + drills + pressure practice</span>
+            <span class="badge">Built on 17 mnemonics</span>
+          </div>
+
+          <h1>Build a sharper poker mind—<br/>so decisions get faster.</h1>
+
+          <p class="subhead">
+            Poker Memory Trainer turns key poker thinking into short, repeatable mental workouts.
+            You’ll train recall, focus, and decision speed with games, drills, and pressure challenges—so you hesitate less and leak less EV.
+          </p>
+
+          <ul class="bullets">
+            <li><span class="dot"></span><span><strong>Reduce hesitation</strong> by compressing what matters into fast recall cues.</span></li>
+            <li><span class="dot"></span><span><strong>Improve focus</strong> late-session by training short, repeatable mental reps.</span></li>
+            <li><span class="dot"></span><span><strong>Make fewer mistakes</strong> by drilling discipline triggers until they stick.</span></li>
+            <li><span class="dot"></span><span><strong>Keep it enjoyable</strong> with quick games instead of long lectures.</span></li>
+          </ul>
+
+          <div class="cta-row">
+            <!-- Replace BUY_LINK with your checkout link -->
+            <a class="btn primary" href="BUY_LINK" id="buy-cta-top">Get Poker Memory Trainer</a>
+            <a class="btn" href="#how">See how it works</a>
+          </div>
+
+          <p class="micro">Best used in 3–7 minute sessions. Repeatable. Practical. Pressure-friendly.</p>
+        </div>
+
+        <aside class="panel hero-right" aria-label="Purchase summary">
+          <div class="price-box">
+            <div class="price-top">
+              <div>
+                <h2>Get instant access</h2>
+                <div class="price">$27 <small>one-time</small></div>
+                <div class="micro">A focused mental training tool for poker players.</div>
+              </div>
+            </div>
+
+            <div class="cta-row" style="margin-top:12px;">
+              <a class="btn primary" href="BUY_LINK" id="buy">Buy now</a>
+              <a class="btn" href="#inside">What you get</a>
+            </div>
+
+            <div class="note">
+              Tip: If you’ve ever thought “I knew the right play, but…”, you’re exactly who this was made for.
+            </div>
+          </div>
+
+          <div class="includes" id="inside">
+            <h3>What you get</h3>
+            <ul class="checklist">
+              <li><span class="tick">✓</span><span><strong>Access to Poker Memory Trainer</strong> (the GPT)</span></li>
+              <li><span class="tick">✓</span><span><strong>17-word mnemonic framework</strong> (the core system)</span></li>
+              <li><span class="tick">✓</span><span><strong>Training modes</strong> for recall, scenarios, pressure, and review</span></li>
+              <li><span class="tick">✓</span><span><strong>Unlimited practice</strong> (use it as often as you like)</span></li>
+            </ul>
+          </div>
+        </aside>
+      </div>
+
+      <!-- WHY -->
+      <section class="panel long" id="how" aria-label="How it works">
+        <div class="section-title">
+          <h2>Why poker is a memory game (even when you know the math)</h2>
+          <span>Knowledge isn’t the bottleneck—recall is.</span>
+        </div>
+
+        <p>
+          In real poker, you don’t get unlimited time to think. The action moves. The table watches. Pressure compresses time.
+          And when pressure rises, your brain doesn’t calculate—it defaults to <strong>habit and recall</strong>.
+        </p>
+
+        <p>
+          That’s why players often make decisions they later regret—even when they “know better.”
+          The problem isn’t intelligence. The problem is <strong>retrieval</strong>: pulling the right concept at the right moment.
+        </p>
+
+        <p>
+          Poker Memory Trainer solves that by turning key thinking into <strong>compressed cues</strong> that train like muscle memory:
+          short reps, repeated exposure, and pressure simulation.
+        </p>
+
+        <div class="divider"></div>
+
+        <div class="grid">
+          <div class="card">
+            <h3>Train speed without rushing</h3>
+            <p>
+              You’ll practice recognizing what matters most right now—so decisions become quicker and cleaner without getting sloppy.
+            </p>
+          </div>
+          <div class="card">
+            <h3>Train discipline without lectures</h3>
+            <p>
+              The system drills “stop-loss” thinking and common trap detection through games, not long explanations.
+            </p>
+          </div>
+          <div class="card">
+            <h3>Train focus late-session</h3>
+            <p>
+              Short workouts build mental endurance. The goal is fewer autopilot leaks when fatigue sets in.
+            </p>
+          </div>
+          <div class="card">
+            <h3>Make practice enjoyable</h3>
+            <p>
+              You’ll use quick drills and playful challenges—easy to repeat daily without forcing yourself through homework.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- MODES -->
+      <section class="panel long" id="modes" aria-label="Training modes">
+        <div class="section-title">
+          <h2>Training modes</h2>
+          <span>Pick a mode. Run a short set. Build the habit.</span>
+        </div>
+
+        <ul class="list">
+          <li><strong>Quick Recall</strong> — fast letter-by-letter prompts that force instant retrieval.</li>
+          <li><strong>Scenario Match</strong> — short poker spots where you choose the right thinking lens.</li>
+          <li><strong>Pressure Drill</strong> — time-compressed decisions that mimic real-table stress.</li>
+          <li><strong>Mnemonic Ladder</strong> — start with a few cues, then stack until recall is automatic.</li>
+          <li><strong>Memory Games</strong> — missing letters, fill-in-the-blank, reverse recall, and pattern challenges.</li>
+          <li><strong>Session Review</strong> — structured post-play reflection using the H.A.N.D.S. checklist.</li>
+        </ul>
+
+        <div class="note">
+          Most users get the best results with 3–7 minutes per day. Short, consistent reps beat long sessions you rarely repeat.
+        </div>
+      </section>
+
+      <!-- THE 17 WORDS -->
+      <section class="panel long" aria-label="The 17-word framework">
+        <div class="section-title">
+          <h2>The 17-word framework</h2>
+          <span>Compressed cues that guide decision-making.</span>
+        </div>
+
+        <p>
+          The trainer is built on a fixed set of 17 mnemonic words. Each one is a “decision lens” designed to pull your attention
+          to what matters and away from what doesn’t—especially under pressure.
+        </p>
+
+        <div class="mnemo" aria-label="Mnemonic list">
+          <div class="pill"><b>F.O.L.D.</b><em>Assigning EV & avoiding bad spots</em></div>
+          <div class="pill"><b>P.L.A.Y.</b><em>Preflop decision structure</em></div>
+          <div class="pill"><b>B.O.A.R.D.</b><em>Flop evaluation</em></div>
+          <div class="pill"><b>R.O.L.L.</b><em>Turn/river adjustments</em></div>
+          <div class="pill"><b>B.E.T.</b><em>Bluff discipline</em></div>
+          <div class="pill"><b>L.I.E.S.</b><em>Opponent profiling</em></div>
+          <div class="pill"><b>T.A.G.</b><em>Player type lens</em></div>
+          <div class="pill"><b>P.O.T.</b><em>Situational awareness</em></div>
+          <div class="pill"><b>A.W.A.R.E.</b><em>Game flow adaptation</em></div>
+          <div class="pill"><b>S.L.I.P.</b><em>Capitalizing on mistakes</em></div>
+          <div class="pill"><b>M.I.L.K.</b><em>Value extraction</em></div>
+          <div class="pill"><b>T.R.A.P.</b><em>Negative-spot detection</em></div>
+          <div class="pill"><b>C.U.T.</b><em>Folding discipline</em></div>
+          <div class="pill"><b>C.A.R.D.</b><em>Tournament pressure lens</em></div>
+          <div class="pill"><b>S.I.Z.E.</b><em>Stack management</em></div>
+          <div class="pill"><b>D.E.E.P.</b><em>Deep-stack caution & leverage</em></div>
+          <div class="pill"><b>H.A.N.D.S.</b><em>Post-session review</em></div>
+        </div>
+      </section>
+
+      <!-- WHO IT'S FOR -->
+      <section class="panel long" aria-label="Who this is for">
+        <div class="section-title">
+          <h2>Who Poker Memory Trainer is for</h2>
+          <span>If this sounds like you, you’ll feel the difference quickly.</span>
+        </div>
+
+        <div class="grid">
+          <div class="card">
+            <h3>You know concepts but don’t always execute</h3>
+            <p>Execution fails when recall is slow or overloaded. This trains retrieval, not theory accumulation.</p>
+          </div>
+          <div class="card">
+            <h3>You feel sharp early and foggy later</h3>
+            <p>Short, repeatable mental workouts build endurance and reduce late-session autopilot mistakes.</p>
+          </div>
+          <div class="card">
+            <h3>You want simpler thinking, not more thinking</h3>
+            <p>Compressed cues help you make fewer, better decisions instead of spinning in analysis.</p>
+          </div>
+          <div class="card">
+            <h3>You’ll actually use it</h3>
+            <p>It’s built to be used daily—fast, focused, and not exhausting.</p>
+          </div>
+        </div>
+
+        <div class="note">
+          Not a fit if you’re looking for solver breakdowns, dense charts, or someone else to “play the hand” for you.
+        </div>
+      </section>
+
+      <!-- FAQ -->
+      <section class="panel long faq" id="faq" aria-label="FAQ">
+        <div class="section-title">
+          <h2>FAQ</h2>
+          <span>Quick answers to common questions.</span>
+        </div>
+
+        <details>
+          <summary>How long should I use it each day?</summary>
+          <p>Most users do best with 3–7 minutes. The trainer is designed for short reps you’ll actually repeat.</p>
+        </details>
+
+        <details>
+          <summary>Is this for live poker, online, or both?</summary>
+          <p>Both. The training is about recall, focus, and pressure-friendly thinking—useful anywhere poker is played.</p>
+        </details>
+
+        <details>
+          <summary>Do I need to be advanced to use this?</summary>
+          <p>No. The mnemonics make learning easier for newer players and make execution more consistent for experienced players.</p>
+        </details>
+
+        <details>
+          <summary>Does it teach complex poker theory?</summary>
+          <p>It focuses on training how you think, not burying you in long explanations. The purpose is speed, clarity, and discipline.</p>
+        </details>
+
+        <details>
+          <summary>How do I access it after purchase?</summary>
+          <p>Use your checkout link to deliver access instructions (or a link) however you prefer—Gumroad, a thank-you page, or an email delivery.</p>
+        </details>
+      </section>
+
+      <!-- FINAL CTA -->
+      <section class="panel long" aria-label="Final call to action">
+        <div class="section-title">
+          <h2>Get Poker Memory Trainer</h2>
+          <span>Train faster decisions. Reduce hesitation. Build consistency.</span>
+        </div>
+
+        <p>
+          Poker Memory Trainer is built for the moment that matters: when you need the right thought <strong>now</strong>.
+          If you’ve ever replayed a hand and thought, “I knew that,” this is your tool.
+        </p>
+
+        <div class="cta-row" style="margin-top:14px;">
+          <a class="btn primary" href="BUY_LINK">Get access — $27</a>
+          <a class="btn" href="#top">Back to top</a>
+        </div>
+
+        <p class="micro">Replace <strong>BUY_LINK</strong> in this file with your checkout link.</p>
+      </section>
+
+      <footer class="footer" aria-label="Footer">
+        <span>© <span id="y"></span> Poker Memory Trainer</span>
+        <span>Simple. Repeatable. Pressure-friendly.</span>
+      </footer>
+    </main>
+  </div>
+
+  <script>
+    document.getElementById('y').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>

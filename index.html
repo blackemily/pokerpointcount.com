@@ -1,192 +1,373 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Win More Consistently at Poker</title>
-  <meta name="description" content="Simple poker decision approaches for players who want less guessing, fewer mistakes, and more consistent results.">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Checkpoint Poker | Poker Point Count</title>
+
+  <meta name="description" content="Checkpoint Poker is a 10-book poker decision system built around plus-one and minus-one decisions, tournament strategy, cash games, hand reading, bluffing, range construction, exploitation, AI poker thinking, endgame strategy, and bankroll growth." />
 
   <style>
     body {
       margin: 0;
       font-family: Arial, Helvetica, sans-serif;
-      background: linear-gradient(180deg, #0b0f14, #070a0f);
-      color: #e6edf3;
-    }
-
-    .container {
-      max-width: 760px;
-      margin: 60px auto;
-      padding: 0 20px;
-    }
-
-    h1 {
-      font-size: 34px;
-      margin-bottom: 10px;
-      line-height: 1.15;
-    }
-
-    .sub {
-      color: #9fb0c3;
-      font-size: 18px;
-      line-height: 1.5;
-      margin-bottom: 36px;
-    }
-
-    h2 {
-      margin-top: 38px;
-      font-size: 23px;
-    }
-
-    h3 {
-      margin-top: 0;
-      font-size: 19px;
-    }
-
-    p {
-      color: #c9d1d9;
+      background: #0b0b0b;
+      color: #f4f4f4;
       line-height: 1.6;
     }
 
-    .card {
-      border: 1px solid #1f2933;
-      background: #0d131a;
-      padding: 22px;
-      margin-top: 18px;
-      border-radius: 8px;
+    a {
+      color: inherit;
     }
 
-    .highlight {
-      border: 1px solid #2f81f7;
-      background: #0d131a;
-      padding: 26px;
-      margin-top: 28px;
-      border-radius: 8px;
+    header {
+      background: linear-gradient(180deg, #000 0%, #151515 100%);
+      text-align: center;
+      padding: 70px 20px;
+      border-bottom: 3px solid #b00020;
     }
 
-    ul {
-      margin: 12px 0;
-      color: #c9d1d9;
-      padding-left: 20px;
+    header h1 {
+      font-size: 52px;
+      margin: 0 0 15px;
+      letter-spacing: 1px;
+    }
+
+    header p {
+      max-width: 850px;
+      margin: 0 auto 25px;
+      font-size: 22px;
+      color: #ddd;
     }
 
     .button {
       display: inline-block;
-      margin-top: 14px;
-      padding: 11px 18px;
-      border: 1px solid #2f81f7;
-      color: #2f81f7;
+      background: #b00020;
+      color: #fff;
+      padding: 14px 24px;
       text-decoration: none;
+      font-weight: bold;
+      border-radius: 4px;
+      margin: 8px 6px 0;
+    }
+
+    .button.secondary {
+      background: #333;
+      border: 1px solid #777;
+    }
+
+    .container {
+      max-width: 1150px;
+      margin: 0 auto;
+      padding: 45px 20px;
+    }
+
+    .section {
+      border-bottom: 1px solid #333;
+      padding-bottom: 45px;
+      margin-bottom: 45px;
+    }
+
+    h2 {
+      font-size: 34px;
+      margin: 0 0 18px;
+    }
+
+    h3 {
+      font-size: 23px;
+      margin: 14px 0 8px;
+    }
+
+    .highlight {
+      background: #171717;
+      border-left: 5px solid #b00020;
+      padding: 22px;
+      margin: 28px 0;
+      font-size: 18px;
+    }
+
+    .featured {
+      display: grid;
+      grid-template-columns: minmax(260px, 360px) 1fr;
+      gap: 35px;
+      align-items: center;
+      background: #151515;
+      border: 1px solid #333;
+      border-radius: 8px;
+      padding: 28px;
+    }
+
+    .featured img {
+      width: 100%;
+      border-radius: 6px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.55);
+    }
+
+    .price {
+      color: #ffcc66;
+      font-size: 22px;
+      font-weight: bold;
+      margin: 12px 0;
+    }
+
+    .books {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: 24px;
+      margin-top: 25px;
+    }
+
+    .book {
+      background: #151515;
+      border: 1px solid #333;
+      border-radius: 8px;
+      padding: 18px;
+      text-align: center;
+    }
+
+    .book img {
+      width: 100%;
       border-radius: 5px;
+      box-shadow: 0 8px 22px rgba(0,0,0,0.5);
+    }
+
+    .book p {
+      font-size: 15px;
+      color: #ddd;
+    }
+
+    .bundle {
+      background: #240000;
+      border: 2px solid #b00020;
+      border-radius: 8px;
+      padding: 32px;
+    }
+
+    footer {
+      text-align: center;
+      background: #000;
+      color: #aaa;
       font-size: 14px;
+      padding: 30px 20px;
     }
 
-    .button:hover {
-      background: #2f81f7;
-      color: #ffffff;
-    }
+    @media (max-width: 760px) {
+      header h1 {
+        font-size: 40px;
+      }
 
-    .small {
-      color: #8b949e;
-      font-size: 14px;
-    }
+      header p {
+        font-size: 19px;
+      }
 
-    .footer {
-      margin-top: 60px;
-      font-size: 13px;
-      color: #8b949e;
+      .featured {
+        grid-template-columns: 1fr;
+      }
     }
   </style>
 </head>
 
 <body>
 
-<div class="container">
-
-  <h1>Stop Making Unclear Poker Decisions</h1>
-
-  <p class="sub">
-    If you came here from one of my poker books, this page gives you the next step: simple ways to play with fewer guesses, fewer emotional mistakes, and more consistent decisions.
-  </p>
-
-  <div class="highlight">
-    <h2>Best Starting Point</h2>
-    <p>
-      If you want everything in one place, start with the complete poker library. It includes all three decision approaches and gives you the full rules, ranges, and examples instead of just one narrow topic.
-    </p>
-
-    <a href="/full-library/" class="button">See the Complete Poker Library</a>
-  </div>
-
-  <h2>Choose the Approach That Fits You</h2>
-
-  <div class="card">
-    <h3>If you want a clear decision process</h3>
-
-    <p>
-      Use this path if you want a structured way to judge hands without drifting into guesswork.
-    </p>
-
-    <ul>
-      <li>Better for players who want rules</li>
-      <li>Helps reduce emotional calls</li>
-      <li>Built around position, pressure, strength, and risk</li>
-    </ul>
-
-    <p class="small">System: Poker Point Count</p>
-
-    <a href="/poker-point-count/" class="button">Continue to Poker Point Count</a>
-  </div>
-
-  <div class="card">
-    <h3>If you want to simplify the game</h3>
-
-    <p>
-      Use this path if you want to make better decisions without depending on reads, table psychology, or perfect information.
-    </p>
-
-    <ul>
-      <li>Better for players who overthink</li>
-      <li>Reduces the amount of information required</li>
-      <li>Focuses on discipline, position, and consistency</li>
-    </ul>
-
-    <p class="small">System: Blindfold Poker</p>
-
-    <a href="/blindfold-poker/" class="button">Continue to Blindfold Poker</a>
-  </div>
-
-  <div class="card">
-    <h3>If you want a repeatable way to play</h3>
-
-    <p>
-      Use this path if you want a simple, no-counting method that feels closer to basic strategy in blackjack.
-    </p>
-
-    <ul>
-      <li>Better for players who want less thinking</li>
-      <li>Uses simple checks instead of constant analysis</li>
-      <li>Designed for repeatable execution</li>
-    </ul>
-
-    <p class="small">System: Poker Basic Strategy</p>
-
-    <a href="/poker-basic-strategy/" class="button">Continue to Poker Basic Strategy</a>
-  </div>
-
-  <h2>Practice Online</h2>
-
+<header>
+  <h1>Checkpoint Poker</h1>
   <p>
-    Once you have a clear way to make decisions, you can practice in real games. Only play where legal, start small, and never risk money you cannot afford to lose.
+    A complete poker decision system built around plus-one and minus-one choices.
+    Learn the core system, then apply it to tournaments, cash games, hand reading,
+    bluffing, ranges, exploitation, AI-style thinking, endgame pressure, and bankroll growth.
   </p>
 
-  <a href="/play/" class="button" rel="sponsored nofollow">Where to Play Online Poker</a>
+  <a href="#core" class="button">Start with the Core System</a>
+  <a href="#library" class="button secondary">View the 10-Book Library</a>
+</header>
 
-  <div class="footer">
-    <p>&copy; Poker Point Count</p>
-  </div>
+<main class="container">
 
-</div>
+  <section class="section">
+    <h2>Most Poker Players Think Hand by Hand</h2>
+
+    <p>
+      Checkpoint Poker is built on a different idea. Poker is not won by one perfect hand.
+      It is won by repeated decisions that move you forward or backward.
+    </p>
+
+    <p>
+      A plus-one decision improves your position. A minus-one decision damages your position.
+      The goal is not to chase short-term results. The goal is to make better decisions at
+      each checkpoint.
+    </p>
+
+    <div class="highlight">
+      The question is simple: did this decision move you closer to winning, or farther away?
+    </div>
+  </section>
+
+  <section id="core" class="section">
+    <div class="featured">
+      <div>
+        <img src="covers/checkpoint-poker-core-system.png" alt="Checkpoint Poker: The Core System book cover">
+      </div>
+
+      <div>
+        <h2>Start Here: Checkpoint Poker: The Core System</h2>
+
+        <p>
+          This is the foundation book. It teaches the Checkpoint Poker decision framework,
+          the plus-one/minus-one system, and the mental structure behind the entire library.
+        </p>
+
+        <p>
+          If you are new to Checkpoint Poker, this is the first book to read. The other books
+          build on this foundation by applying the system to specific parts of the game.
+        </p>
+
+        <p class="price">$19</p>
+
+        <a href="checkpoint-poker-core-system.html" class="button">View Book Page</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="library" class="section">
+    <h2>The Checkpoint Poker 10-Book Library</h2>
+
+    <p>
+      Each book stands on its own. Start with the Core System, choose the area of your game
+      that needs the most help, or get the complete collection.
+    </p>
+
+    <div class="books">
+
+      <div class="book">
+        <img src="covers/checkpoint-poker-core-system.png" alt="Checkpoint Poker: The Core System cover">
+        <h3>Checkpoint Poker: The Core System</h3>
+        <p>The foundation of the plus-one/minus-one decision framework.</p>
+        <p class="price">$19</p>
+        <a href="checkpoint-poker-core-system.html" class="button">View Book</a>
+      </div>
+
+      <div class="book">
+        <img src="covers/tournament-domination.png" alt="Tournament Domination cover">
+        <h3>Tournament Domination</h3>
+        <p>Apply checkpoints to survival, pressure, accumulation, and tournament stages.</p>
+        <p class="price">$19</p>
+        <a href="tournament-domination.html" class="button">View Book</a>
+      </div>
+
+      <div class="book">
+        <img src="covers/cash-game-domination.png" alt="Cash Game Domination cover">
+        <h3>Cash Game Domination</h3>
+        <p>Reduce leaks, choose better spots, and build steady cash-game decisions.</p>
+        <p class="price">$19</p>
+        <a href="cash-game-domination.html" class="button">View Book</a>
+      </div>
+
+      <div class="book">
+        <img src="covers/hand-reading-mastery.png" alt="Hand Reading Mastery cover">
+        <h3>Hand Reading Mastery</h3>
+        <p>Read hands through betting patterns, pressure points, and decision paths.</p>
+        <p class="price">$19</p>
+        <a href="hand-reading-mastery.html" class="button">View Book</a>
+      </div>
+
+      <div class="book">
+        <img src="covers/bluffing-systems.png" alt="Bluffing Systems cover">
+        <h3>Bluffing Systems</h3>
+        <p>Learn when pressure is plus-one and when bluffing is just chip destruction.</p>
+        <p class="price">$19</p>
+        <a href="bluffing-systems.html" class="button">View Book</a>
+      </div>
+
+      <div class="book">
+        <img src="covers/range-construction.png" alt="Range Construction cover">
+        <h3>Range Construction</h3>
+        <p>Use ranges as decision tools instead of memorized charts disconnected from play.</p>
+        <p class="price">$19</p>
+        <a href="range-construction.html" class="button">View Book</a>
+      </div>
+
+      <div class="book">
+        <img src="covers/exploitation-techniques.png" alt="Exploitation Techniques cover">
+        <h3>Exploitation Techniques</h3>
+        <p>Find opponent weaknesses and turn them into repeatable plus-one advantages.</p>
+        <p class="price">$19</p>
+        <a href="exploitation-techniques.html" class="button">View Book</a>
+      </div>
+
+      <div class="book">
+        <img src="covers/ai-poker-thinking.png" alt="AI Poker Thinking cover">
+        <h3>AI Poker Thinking</h3>
+        <p>Think in decision trees, pressure points, adjustments, and structured logic.</p>
+        <p class="price">$19</p>
+        <a href="ai-poker-thinking.html" class="button">View Book</a>
+      </div>
+
+      <div class="book">
+        <img src="covers/endgame-strategy.png" alt="Endgame Strategy cover">
+        <h3>Endgame Strategy</h3>
+        <p>Make better late-stage decisions when pressure and payouts change everything.</p>
+        <p class="price">$19</p>
+        <a href="endgame-strategy.html" class="button">View Book</a>
+      </div>
+
+      <div class="book">
+        <img src="covers/bankroll-growth.png" alt="Bankroll Growth cover">
+        <h3>Bankroll Growth</h3>
+        <p>Use checkpoint thinking to protect capital, manage risk, and grow seriously.</p>
+        <p class="price">$19</p>
+        <a href="bankroll-growth.html" class="button">View Book</a>
+      </div>
+
+    </div>
+  </section>
+
+  <section id="collection" class="section">
+    <div class="bundle">
+      <h2>Checkpoint Poker Advanced Collection</h2>
+
+      <p>
+        Get all 10 Checkpoint Poker books in one collection.
+      </p>
+
+      <p>
+        Includes the Core System plus Tournament Domination, Cash Game Domination,
+        Hand Reading Mastery, Bluffing Systems, Range Construction, Exploitation Techniques,
+        AI Poker Thinking, Endgame Strategy, and Bankroll Growth.
+      </p>
+
+      <p>
+        Bought separately, the 10 books total $190. The complete collection is $97.
+      </p>
+
+      <p class="price">$97</p>
+
+      <a href="checkpoint-poker-advanced-collection.html" class="button">View Collection Page</a>
+    </div>
+  </section>
+
+  <section>
+    <h2>Who This Is For</h2>
+
+    <p>
+      Checkpoint Poker is for players who are tired of guessing, chasing, tilting, and judging
+      their game only by short-term results.
+    </p>
+
+    <p>
+      It is for players who want a clear decision framework they can carry into tournaments,
+      cash games, hand reading, bluffing, bankroll decisions, and long-term improvement.
+    </p>
+  </section>
+
+</main>
+
+<footer>
+  <p>© 2026 Poker Point Count. All rights reserved.</p>
+</footer>
 
 </body>
 </html>
+```
+

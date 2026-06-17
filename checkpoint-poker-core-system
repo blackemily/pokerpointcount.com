@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Checkpoint Poker: The Core System | Poker Point Count</title>
+
+  <meta name="description" content="Checkpoint Poker: The Core System teaches a structured poker decision framework built around plus-one and minus-one choices, helping players make better decisions in tournaments, cash games, hand reading, bluffing, ranges, bankroll management, and long-term improvement." />
+
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background: #0b0b0b;
+      color: #f4f4f4;
+      line-height: 1.6;
+    }
+
+    a {
+      color: inherit;
+    }
+
+    .hero-wrap {
+      background: linear-gradient(180deg, #000 0%, #151515 100%);
+      border-bottom: 3px solid #b00020;
+    }
+
+    .hero {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 50px 20px;
+      display: grid;
+      grid-template-columns: 1.2fr 360px;
+      gap: 38px;
+      align-items: center;
+    }
+
+    .hero-text {
+      text-align: left;
+    }
+
+    .hero h1 {
+      font-size: 52px;
+      margin: 0 0 15px;
+      letter-spacing: 1px;
+    }
+
+    .hero p {
+      max-width: 760px;
+      font-size: 22px;
+      color: #ddd;
+      margin-bottom: 24px;
+    }
+
+    .hero-cover img,
+    .collection-cover img {
+      width: 100%;
+      border-radius: 6px;
+      box-shadow: 0 12px 35px rgba(0,0,0,0.65);
+    }
+
+    .button {
+      display: inline-block;
+      background: #b00020;
+      color: #fff;
+      padding: 14px 24px;
+      text-decoration: none;
+      font-weight: bold;
+      border-radius: 4px;
+      margin: 8px 6px 0 0;
+    }
+
+    .button.secondary {
+      background: #333;
+      border: 1px solid #777;
+    }
+
+    .container {
+      max-width: 1150px;
+      margin: 0 auto;
+      padding: 45px 20px;
+    }
+
+    .section {
+      border-bottom: 1px solid #333;
+      padding-bottom: 45px;
+      margin-bottom: 45px;
+    }
+
+    h2 {
+      font-size: 34px;
+      margin: 0 0 18px;
+    }
+
+    h3 {
+      font-size: 24px;
+      margin: 22px 0 10px;
+    }
+
+    p {
+      font-size: 18px;
+      color: #ddd;
+    }
+
+    ul {
+      font-size: 18px;
+      color: #ddd;
+    }
+
+    .highlight {
+      background: #171717;
+      border-left: 5px solid #b00020;
+      padding: 22px;
+      margin: 28px 0;
+      font-size: 18px;
+    }
+
+    .bundle {
+      background: #240000;
+      border: 2px solid #b00020;
+      border-radius: 8px;
+      padding: 32px;
+    }
+
+    .collection-cover {
+      max-width: 500px;
+      margin: 30px auto;
+    }
+
+    footer {
+      text-align: center;
+      background: #000;
+      color: #aaa;
+      font-size: 14px;
+      padding: 30px 20px;
+    }
+
+    @media (max-width: 800px) {
+      .hero {
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+
+      .hero-text {
+        text-align: center;
+      }
+
+      .hero h1 {
+        font-size: 38px;
+      }
+
+      .hero p {
+        font-size: 19px;
+      }
+
+      .hero-cover {
+        max-width: 330px;
+        margin: 0 auto;
+      }
+    }
+  </style>
+
+</head>
+
+<body>
+
+<div class="hero-wrap">
+  <header class="hero">
+    <div class="hero-text">
+      <h1>Checkpoint Poker: The Core System</h1>
+
+```
+  <p>
+    Stop playing poker hand by hand. Start using a complete decision system built around plus-one and minus-one choices.
+  </p>
+
+  <a href="https://localebooks.gumroad.com/l/nadgyz" class="button">Buy The Core System</a>
+  <a href="index.html" class="button secondary">Return To Homepage</a>
+</div>
+
+<div class="hero-cover">
+  <img src="covers/checkpoint-poker-core-system.png" alt="Checkpoint Poker: The Core System book cover">
+</div>
+```
+
+  </header>
+</div>
+
+<main class="container">
+
+  <section class="section">
+    <h2>Most Poker Players Think About Hands. Winners Think About Decisions.</h2>
+
+```
+<p>
+  Most players judge poker by the hand they just won or lost. They remember the bad beat. They remember the bluff that worked. They remember the big pot that slipped away.
+</p>
+
+<p>
+  But poker is not really won one hand at a time. Poker is won by making better decisions again and again at the key checkpoints that appear throughout a session, a tournament, a cash game, or an entire poker career.
+</p>
+
+<p>
+  Checkpoint Poker: The Core System gives you a simple way to evaluate those decisions.
+</p>
+
+<div class="highlight">
+  A plus-one decision moves you closer to winning. A minus-one decision moves you farther away.
+</div>
+
+<p>
+  That idea sounds simple because it is supposed to be simple. Poker gets confusing when players chase emotion, ego, revenge, fear, or short-term results. The Checkpoint Poker system brings the game back to the decision in front of you.
+</p>
+```
+
+  </section>
+
+  <section class="section">
+    <h2>The Problem With Random Poker Advice</h2>
+
+```
+<p>
+  Poker players collect tips. They watch videos. They memorize charts. They study hands. They hear advice about position, aggression, pot odds, ranges, blockers, pressure, bankrolls, and table selection.
+</p>
+
+<p>
+  The problem is not that the advice is useless. The problem is that most players never turn it into a working system.
+</p>
+
+<p>
+  When the pressure rises, scattered advice disappears. A player who thought he understood poker suddenly starts guessing. He calls because he is frustrated. He bluffs because he wants respect. He folds because he is scared. He chases because he wants to get even.
+</p>
+
+<p>
+  Checkpoint Poker is designed to stop that.
+</p>
+
+<p>
+  Instead of asking, “Do I feel like playing this hand?” the system trains you to ask better questions.
+</p>
+
+<ul>
+  <li>Does this decision improve my position?</li>
+  <li>Does this decision expose me to unnecessary damage?</li>
+  <li>Am I reacting emotionally or thinking clearly?</li>
+  <li>Am I creating pressure or absorbing pressure?</li>
+  <li>Is this a plus-one decision or a minus-one decision?</li>
+</ul>
+```
+
+  </section>
+
+  <section class="section">
+    <h2>What The Core System Teaches</h2>
+
+```
+<p>
+  This book is the foundation of the Checkpoint Poker library. Every advanced book builds from the ideas introduced here.
+</p>
+
+<p>
+  The Core System teaches you how to think through poker decisions before they become expensive mistakes.
+</p>
+
+<h3>You will learn how to:</h3>
+
+<ul>
+  <li>Use plus-one and minus-one thinking at the table</li>
+  <li>Recognize decision checkpoints before pressure takes over</li>
+  <li>Separate good decisions from lucky results</li>
+  <li>Stop judging your game only by short-term wins and losses</li>
+  <li>Reduce emotional calls, revenge bluffs, and panic folds</li>
+  <li>Build a decision process you can use in tournaments and cash games</li>
+  <li>Protect your stack, your bankroll, and your long-term edge</li>
+</ul>
+
+<p>
+  The goal is not to make poker complicated. The goal is to make your thinking clearer.
+</p>
+```
+
+  </section>
+
+  <section class="section">
+    <h2>Why Checkpoints Matter</h2>
+
+```
+<p>
+  Every poker decision creates movement. Some decisions move you forward. Some move you backward. Some protect you from damage. Some create future opportunities.
+</p>
+
+<p>
+  The checkpoint idea forces you to slow down just enough to recognize what kind of decision you are really making.
+</p>
+
+<p>
+  Are you entering a hand with a purpose? Are you calling because the price is right or because you are curious? Are you betting for value, pressure, protection, or confusion? Are you risking chips because the spot deserves it, or because emotion has taken over?
+</p>
+
+<p>
+  These questions matter because poker punishes unclear thinking.
+</p>
+
+<div class="highlight">
+  The Core System gives you a repeatable way to bring your mind back to the decision instead of the emotion.
+</div>
+```
+
+  </section>
+
+  <section class="section">
+    <h2>Who This Book Is For</h2>
+
+```
+<p>
+  Checkpoint Poker: The Core System is for poker players who are tired of guessing, tilting, chasing, and wondering why their results never become consistent.
+</p>
+
+<p>
+  It is for players who want a practical decision framework they can use immediately.
+</p>
+
+<p>
+  You do not need to be a professional player. You do not need to understand advanced solver theory. You do not need to memorize hundreds of charts.
+</p>
+
+<p>
+  You need a system that helps you make better decisions at the table.
+</p>
+
+<p>
+  That is what Checkpoint Poker is built to do.
+</p>
+
+<a href="https://localebooks.gumroad.com/l/nadgyz" class="button">Buy Checkpoint Poker: The Core System</a>
+```
+
+  </section>
+
+  <section class="section">
+    <div class="bundle">
+      <h2>Ready For The Complete Checkpoint Poker System?</h2>
+
+```
+  <p>
+    The Core System gives you the foundation. The Checkpoint Poker Advanced Collection expands that foundation across the major areas of poker strategy.
+  </p>
+
+  <div class="collection-cover">
+    <img src="covers/checkpoint-poker-advanced-collection.png" alt="Checkpoint Poker Advanced Collection cover">
+  </div>
+
+  <p>
+    The Advanced Collection includes the complete Checkpoint Poker library:
+  </p>
+
+  <ul>
+    <li>Checkpoint Poker: The Core System</li>
+    <li>Checkpoint Poker: Tournament Domination</li>
+    <li>Checkpoint Poker: Cash Game Domination</li>
+    <li>Checkpoint Poker: Hand Reading Mastery</li>
+    <li>Checkpoint Poker: Bluffing Systems</li>
+    <li>Checkpoint Poker: Range Construction</li>
+    <li>Checkpoint Poker: Exploitation Techniques</li>
+    <li>Checkpoint Poker: AI Poker Thinking</li>
+    <li>Checkpoint Poker: Endgame Strategy</li>
+    <li>Checkpoint Poker: Bankroll Growth</li>
+  </ul>
+
+  <p>
+    If you want the full Checkpoint Poker system instead of one book at a time, the Advanced Collection is the complete package.
+  </p>
+
+  <a href="https://localebooks.gumroad.com/l/lbtypc" class="button">Get The Advanced Collection</a>
+  <a href="index.html" class="button secondary">Return To Homepage</a>
+</div>
+```
+
+  </section>
+
+</main>
+
+<footer>
+  <p>© 2026 Poker Point Count. All rights reserved.</p>
+</footer>
+
+</body>
+</html>
